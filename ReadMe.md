@@ -12,4 +12,4 @@ For this example I used Choreography one.
 
 ## System Diagram
 
-![](../../../../var/folders/p2/4xm31y9512nc5fcwdzqv8g1c0000gp/T/TemporaryItems/NSIRD_screencaptureui_5JOmdf/Screen Shot 2022-05-19 at 16.55.05.png)
+![](Saga-pattern.png)
