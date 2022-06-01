@@ -1,7 +1,7 @@
 package com.coupon.couponservice.application;
 
 import com.coupon.couponservice.application.event.CancelOrderEvent;
-import com.coupon.couponservice.application.event.CouponUsedOrderFatEvent;
+import com.coupon.couponservice.application.event.CouponUsedOrderEvent;
 import com.coupon.couponservice.domain.Coupon;
 import com.coupon.couponservice.domain.CouponStatus;
 import com.coupon.couponservice.domain.Order;
@@ -27,7 +27,7 @@ public class CouponService {
         coupon.setCouponStatus(CouponStatus.USED);
         coupon.setUsedOrderId(order.getId());
         couponRepository.save(coupon);
-        eventPublisher.publishEvent(new CouponUsedOrderFatEvent(transactionId, order));
+        eventPublisher.publishEvent(new CouponUsedOrderEvent(transactionId, order));
     }
 
     public void cancelUsed(Order order, String transactionId) {

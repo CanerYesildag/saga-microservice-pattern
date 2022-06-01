@@ -1,6 +1,6 @@
 package com.order.orderservice.application;
 
-import com.order.orderservice.application.event.OrderCreatedFatEvent;
+import com.order.orderservice.application.event.OrderCreatedEvent;
 import com.order.orderservice.domain.Order;
 import com.order.orderservice.domain.OrderStatus;
 import lombok.RequiredArgsConstructor;
@@ -22,9 +22,9 @@ public class OrderService {
         order.setStatus(OrderStatus.PENDING);
 
         String transactionId = UUID.randomUUID().toString();
-        OrderCreatedFatEvent orderCreatedFatEvent = new OrderCreatedFatEvent(transactionId, order);
-        log.info("Publishing an order created orderCreatedFatEvent {}", orderCreatedFatEvent);
-        publisher.publishEvent(orderCreatedFatEvent);
+        OrderCreatedEvent orderCreatedEvent = new OrderCreatedEvent(transactionId, order);
+        log.info("Publishing an order created orderCreatedEvent {}", orderCreatedEvent);
+        publisher.publishEvent(orderCreatedEvent);
 
         return orderRepository.save(order);
     }

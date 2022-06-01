@@ -1,6 +1,6 @@
-package com.payment.paymentservice.application.event;
+package com.coupon.couponservice.application.event;
 
-import com.payment.paymentservice.domain.Order;
+import com.coupon.couponservice.domain.Order;
 import lombok.*;
 
 @Getter
@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class CouponUsedOrderFatEvent {
+public class OrderCreatedEvent {
 
     private String transactionId;
     private Order order;

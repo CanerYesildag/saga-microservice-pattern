@@ -1,15 +1,15 @@
 package com.payment.paymentservice.application.event;
 
 import com.payment.paymentservice.domain.Order;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
-public class BilledOrderFatEvent {
+@NoArgsConstructor
+public class CouponUsedOrderEvent {
 
     private String transactionId;
-    private final Order order;
+    private Order order;
 }

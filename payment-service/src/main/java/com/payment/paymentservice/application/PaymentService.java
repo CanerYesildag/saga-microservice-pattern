@@ -1,6 +1,6 @@
 package com.payment.paymentservice.application;
 
-import com.payment.paymentservice.application.event.BilledOrderFatEvent;
+import com.payment.paymentservice.application.event.BilledOrderEvent;
 import com.payment.paymentservice.application.event.CancelCouponUseEvent;
 import com.payment.paymentservice.domain.Order;
 import com.payment.paymentservice.domain.Payment;
@@ -33,7 +33,7 @@ public class PaymentService {
 
         Payment payment = createPayment(order);
         paymentRepository.save(payment);
-        eventPublisher.publishEvent(new BilledOrderFatEvent(transactionId, order));
+        eventPublisher.publishEvent(new BilledOrderEvent(transactionId, order));
     }
 
     private Payment createPayment(Order order) {

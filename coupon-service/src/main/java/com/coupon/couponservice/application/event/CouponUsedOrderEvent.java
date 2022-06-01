@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderCreatedFatEvent {
+public class CouponUsedOrderEvent {
 
     private String transactionId;
     private Order order;
