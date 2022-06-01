@@ -1,6 +1,6 @@
-package com.order.orderservice.application.event;
+package com.stock.stockservice.application.event;
 
-import com.order.orderservice.domain.Order;
+import com.stock.stockservice.domain.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BilledOrderEvent {
+public class CancelBilledOrderEvent {
 
     private String transactionId;
     private final Order order;

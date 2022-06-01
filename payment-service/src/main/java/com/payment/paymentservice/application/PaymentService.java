@@ -27,13 +27,21 @@ public class PaymentService {
          */
 
         int bankPosPaymentResponse = bankPosService.pay(order.getPrice());
-        if (bankPosPaymentResponse !=  HttpServletResponse.SC_OK) {
+        if (bankPosPaymentResponse != HttpServletResponse.SC_OK) {
             eventPublisher.publishEvent(new CancelCouponUseEvent(transactionId, order));
         }
 
         Payment payment = createPayment(order);
         paymentRepository.save(payment);
         eventPublisher.publishEvent(new BilledOrderEvent(transactionId, order));
+    }
+
+    public void cancelPayment(Order order, String transactionId) {
+        /*
+         * Any payment business logic
+         */
+        this.refund(order.getId());
+        eventPublisher.publishEvent(new CancelCouponUseEvent(transactionId, order));
     }
 
     private Payment createPayment(Order order) {
