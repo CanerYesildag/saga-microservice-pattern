@@ -12,4 +12,4 @@ For this example I used Choreography one.
 
 ## System Diagram
 
-![](Saga-pattern.png)
+![](saga-pattern.png)
